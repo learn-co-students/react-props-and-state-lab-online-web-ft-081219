@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   // fetchPetsMy = () => {
-  //   return fetch('/api/pets')
+  //   fetch('/api/pets')
   //   .then(resp => resp.json())
   //   .then(pets => this.setState({pets: pets.filter(pet => pet.type === this.state.filters.type)}))
   // }
@@ -25,23 +25,16 @@ class App extends React.Component {
 
     if(this.state.filters.type !== 'all') {
       url += `?type=${this.state.filters.type}`
+      debugger
     }
-
     fetch(url)
     .then(resp => resp.json())
     .then(pets => this.setState({pets: pets}))
   }
 
-  // async function
-  // fetchPets = async () => {
-  //   const resp = await fetch('/api/pets')
-  //   const pets = await resp.json()
-  //   return pets.filter(pet => pet.type === this.state.filters.type)
-  // }
-
   // onAdoptPetMine = (petId) => {
-  //   let pet = this.pets.find(pet => pet.id === petId)
-  //   pet.setState({isAdopted: true})
+  //   let pet = this.state.pets.find(pet => pet.id === petId).setState({isAdopted: true})
+  //   // pet.setState({isAdopted: true})
   // }
 
   onAdoptPet = (petId) => {
